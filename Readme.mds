@@ -9,22 +9,23 @@ Requirement 1
 
 Q1 Search fields using queries: Title & Author
 
-    http://localhost:3000/api/books?title=adv&limit=10&offset=0
+    http://localhost:3000/api/books/search/ti?title=Aircraft
 
-    http://localhost:3000/api/books?author=wil&limit=10&offset=0
+    http://localhost:3000/api/books/search/author?name=Eamon
 
-    http://localhost:3000/api/books?title=adv&author=wil&limit=10&offset=0
+    http://localhost:3000/api/books/search/both?name=Eamon&title='Only a Game'
+
 Q2 Directory of books
 
 a.List of 10 books by default, with the titles in alphabetical order
 
-    http://localhost:3000/api/books
+    http://localhost:3000/api/books/search/allbooks
     
-    http://localhost:3000/api/books?limit=10
+    http://localhost:3000/api/books/search/allbooks?limit=10
     
-    http://localhost:3000/api/books?limit=10&offset=0
+    http://localhost:3000/api/books/search/allbooks?limit=10&offset=0
     
-    http://localhost:3000/api/books?limit=10&offset=1
+    http://localhost:3000/api/books/search/allbooks?limit=10&offset=1
     
 
 b.Each item in the books list should return the following information:
@@ -41,40 +42,28 @@ b.Each item in the books list should return the following information:
 c.Search result should include all possibilities based on keywords found in Title or Author fields
 
 
-    http://localhost:3000/api/books?title=adv&limit=10&offset=0
+    http://localhost:3000/api/books/search/ti?title=Aircraft
 
-    http://localhost:3000/api/books?author=wil&limit=10&offset=0
+    http://localhost:3000/api/books/search/author?name=Eamon
 
-    http://localhost:3000/api/books?title=adv&author=wil&limit=10&offset=0
+    http://localhost:3000/api/books/search/both?name=Eamon&title='Only a Game'
     
 d.Able to sort books list by Title or Author from A-Z and Z-A
 
     Sort by title in ascending A-Z
     
-    http://localhost:3000/api/books?title=adv&author=wil&limit=10&offset=0&sortType=titleAsc
     
-    Sort by title in descending Z-A
-    
-    http://localhost:3000/api/books?title=adv&author=wil&limit=10&offset=0&sortType=titleDesc
-    
-    Sort by author in ascending A-Z
-    
-    http://localhost:3000/api/books?title=adv&author=wil&limit=10&offset=0&sortType=authorAsc
-    
-    Sort by author in descending Z-A
-     
-    http://localhost:3000/api/books?title=adv&author=wil&limit=10&offset=0&sortType=authorDesc
     
 e.Pagination
   
   Change the 'offset' values
    
-   http://localhost:3000/api/books?title=adv&author=wil&offset=0
+ 
 
 f.Ability to change a number of books listed in a page
 
   Change the 'limit' values 
    
-   http://localhost:3000/api/books?title=adv&author=wil&limit=3
+   http://localhost:3000/api/books/search/allbooks?limit=3
 
 g.You may use GET or POST methods for the search

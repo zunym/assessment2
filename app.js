@@ -95,7 +95,8 @@ var searchBooks = makeQuery(searchBooksByCriteria, pool);
   });
 
   //Search fields using queries: Title
-  app.get(API_URL+"/title", function (req, res) {
+  //http://localhost:3000/api/books/search/ti?title=Aircraft
+  app.get(API_URL+"/ti", function (req, res) {
     var Ti = req.query.title;
     console.log("All",Ti);
     searchByTitle(['%'+Ti+'%', '%'+Ti+'%'])
