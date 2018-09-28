@@ -1,0 +1,80 @@
+This is only for backend testing verification, frontend is not workable at the moment
+1)Run backend server, under server directory run nodemon
+
+2)Use 'POSTMAN' or 'Advanced REST client` app for testing
+
+Below are the queries
+
+Requirement 1
+
+Q1 Search fields using queries: Title & Author
+
+    http://localhost:3000/api/books?title=adv&limit=10&offset=0
+
+    http://localhost:3000/api/books?author=wil&limit=10&offset=0
+
+    http://localhost:3000/api/books?title=adv&author=wil&limit=10&offset=0
+Q2 Directory of books
+
+a.List of 10 books by default, with the titles in alphabetical order
+
+    http://localhost:3000/api/books
+    
+    http://localhost:3000/api/books?limit=10
+    
+    http://localhost:3000/api/books?limit=10&offset=0
+    
+    http://localhost:3000/api/books?limit=10&offset=1
+    
+
+b.Each item in the books list should return the following information:
+
+  i.Thumbnail of the Cover (image URL)
+  
+  ii.Title
+  
+  iii.Author
+  
+  Same as Q1, http://localhost:3000/api/books?title=adv&author=wil&limit=10&offset=0
+  
+  
+c.Search result should include all possibilities based on keywords found in Title or Author fields
+
+
+    http://localhost:3000/api/books?title=adv&limit=10&offset=0
+
+    http://localhost:3000/api/books?author=wil&limit=10&offset=0
+
+    http://localhost:3000/api/books?title=adv&author=wil&limit=10&offset=0
+    
+d.Able to sort books list by Title or Author from A-Z and Z-A
+
+    Sort by title in ascending A-Z
+    
+    http://localhost:3000/api/books?title=adv&author=wil&limit=10&offset=0&sortType=titleAsc
+    
+    Sort by title in descending Z-A
+    
+    http://localhost:3000/api/books?title=adv&author=wil&limit=10&offset=0&sortType=titleDesc
+    
+    Sort by author in ascending A-Z
+    
+    http://localhost:3000/api/books?title=adv&author=wil&limit=10&offset=0&sortType=authorAsc
+    
+    Sort by author in descending Z-A
+     
+    http://localhost:3000/api/books?title=adv&author=wil&limit=10&offset=0&sortType=authorDesc
+    
+e.Pagination
+  
+  Change the 'offset' values
+   
+   http://localhost:3000/api/books?title=adv&author=wil&offset=0
+
+f.Ability to change a number of books listed in a page
+
+  Change the 'limit' values 
+   
+   http://localhost:3000/api/books?title=adv&author=wil&limit=3
+
+g.You may use GET or POST methods for the search
